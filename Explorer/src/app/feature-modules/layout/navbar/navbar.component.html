@@ -56,28 +56,23 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink4" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         
-                        User (<span *ngIf="user.role === 'administrator'">Admin</span><span *ngIf="user.role === 'author'">Author</span><span *ngIf="user.role === 'tourist'">Tourist</span>)
+                        User (<span *ngIf="user.role === 'administrators'">System admin</span><span *ngIf="user.role === 'administratorc'">Company admin</span><span *ngIf="user.role === 'staff'">Staff</span>)
 
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink4">
 
-                        <li *ngIf="user && user.role === 'administrator'">
+                        <li *ngIf="user && user.role === 'administrators'">
                             
                         </li>
 
-                        <li *ngIf="user && (user.role === 'author' || user.role === 'tourist')">
-                        </li>
+        
 
-                        <li *ngIf="user && (user.role === 'author' || user.role === 'administrator')">
-                           
-                        </li>
-
-                        <li *ngIf="user && user.role === 'author'">
+                        <li *ngIf="user && user.role === 'administratorc'">
                             
 
                         </li>
 
-                        <li *ngIf="user && user.role === 'tourist'">
+                        <li *ngIf="user && user.role === 'staff'">
                             <a class="dropdown-item" [routerLink]="['equipment-record']">Equipment record</a>
                             
                             
@@ -92,7 +87,7 @@
                 <!--Messages dropdown menu-->
                 <div class="container">
                     <div class="dropdown">
-                    <li *ngIf="user && user.role !== 'administrator' && user.username !== ''">
+                    <li *ngIf="user && user.role !== 'administrators' && user.username !== ''">
                         <button class="btn btn-secondary dropdown-toggle" color="btn-primary" [routerLink]="['profile']"><i class="bi bi-person"></i></button>
                     </li>
                     </div>

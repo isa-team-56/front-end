@@ -30,7 +30,7 @@ export enum notificationStatus {
 }
 
 export enum UserRole{
-    administrator = 0,
-    author,
-    tourist
+    administrators = 0,
+    administratorc,
+    staff
 }
