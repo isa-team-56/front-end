@@ -8,4 +8,9 @@ export interface Person {
     quote: string;
     xp: number;
     level: number;
+    city: string;
+    country:string;
+    phone:string;
+    profession:string;
+    firmName:string;
 }

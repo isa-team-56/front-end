@@ -38,7 +38,12 @@ export class ProfileFormComponent implements OnChanges {
       bio: this.profileForm.value.bio || "",
       quote: this.profileForm.value.quote || "",
       xp: this.profile.xp,
-      level: this.profile.level
+      level: this.profile.level,
+      city:this.profile.city,
+      country:this.profile.country,
+      phone:this.profile.phone,
+      profession:this.profile.profession,
+      firmName:this.profile.firmName
     };
     person.id = this.profile.id;
     this.service.updateUser(person).subscribe({
