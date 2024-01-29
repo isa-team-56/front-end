@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './infrastructure/routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './feature-modules/layout/layout.module';
@@ -29,10 +29,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     AppRoutingModule,
     MaterialModule,
     AdministrationModule,
-   
     AuthModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     NgbModule,
     NgxGoogleAnalyticsModule.forRoot('G-S37GC75RZ8'),
