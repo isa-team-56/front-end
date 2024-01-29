@@ -29,6 +29,7 @@ export class EquipmentFormComponent implements OnChanges {
     description: new FormControl('', [Validators.required]),
   });
 
+  /*
   addEquipment(): void {
     const equipment: Equipment = {
       name: this.equipmentForm.value.name || "",
@@ -48,5 +49,5 @@ export class EquipmentFormComponent implements OnChanges {
     this.service.updateEquipment(equipment).subscribe({
       next: () => { this.equimpentUpdated.emit();}
     });
-  }
+  }*/
 }

@@ -6,7 +6,6 @@ import { EquipmentComponent } from 'src/app/feature-modules/administration/equip
 import { AuthGuard } from '../auth/auth.guard';
 import { RegistrationComponent } from '../auth/registration/registration.component';
 import { ProfileComponent } from 'src/app/feature-modules/administration/profile/profile.component';
-import { EquipmentRecordComponent } from 'src/app/feature-modules/administration/equipment-record/equipment-record.component';
 import { FindPeopleComponent } from 'src/app/feature-modules/administration/find-people/find-people.component';
 import { ActivateAccountComponent } from '../auth/activate-account/activate-account.component';import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from '../auth/change-password/change-password.component';
@@ -17,7 +16,6 @@ const routes: Routes = [
   {path: 'register', component: RegistrationComponent},
   {path: 'equipment', component: EquipmentComponent, canActivate: [AuthGuard],},
   {path: 'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-  {path: 'equipment-record', component: EquipmentRecordComponent},
   {path: 'find-people', component: FindPeopleComponent},
   {path: 'activate', component: ActivateAccountComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},

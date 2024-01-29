@@ -5,7 +5,6 @@ import { environment } from 'src/env/environment';
 import { Observable } from 'rxjs';
 import { PagedResults } from 'src/app/shared/model/paged-results.model';
 import { Person } from './model/userprofile.model';
-import { TouristEquipment } from './model/tourist-equipment.model';
 import { User, UserInfo } from 'src/app/infrastructure/auth/model/user.model';
 import { UserNotification } from 'src/app/infrastructure/auth/model/user.model';
 
@@ -20,19 +19,19 @@ export class AdministrationService {
   constructor(private http: HttpClient) { }
 
   getEquipment(): Observable<PagedResults<Equipment>> {
-    return this.http.get<PagedResults<Equipment>>(environment.apiHost + 'administration/equipment')
+    return this.http.get<PagedResults<Equipment>>(environment.apiHost + 'equipment')
   }
 
   deleteEquipment(id: number): Observable<Equipment> {
-    return this.http.delete<Equipment>(environment.apiHost + 'administration/equipment/' + id);
+    return this.http.delete<Equipment>(environment.apiHost + 'equipment/' + id);
   }
 
   addEquipment(equipment: Equipment): Observable<Equipment> {
-    return this.http.post<Equipment>(environment.apiHost + 'administration/equipment', equipment);
+    return this.http.post<Equipment>(environment.apiHost + 'equipment', equipment);
   }
 
   updateEquipment(equipment: Equipment): Observable<Equipment> {
-    return this.http.put<Equipment>(environment.apiHost + 'administration/equipment/' + equipment.id, equipment);
+    return this.http.put<Equipment>(environment.apiHost + 'equipment/' + equipment.id, equipment);
   }
 
   //Profile, Administration
@@ -97,21 +96,6 @@ export class AdministrationService {
     return this.http.patch<User>(environment.apiHost + 'notifications/user/' + userId + '/delete/' + notificationId, {})
   }
 
-
-
-  //Tourist equipment record
-  getTouristEquipment(): Observable<PagedResults<TouristEquipment>> {
-    return this.http.get<PagedResults<TouristEquipment>>(environment.apiHost + 'tourist/equipment')
-  }
-
-  addTouristEquipment(touristEquipment: TouristEquipment): Observable<TouristEquipment>{
-    return this.http.post<TouristEquipment>(environment.apiHost + 'tourist/equipment', touristEquipment);
-  }
-  removeTouristEquipment(id: number): Observable<TouristEquipment> {
-    return this.http.delete<TouristEquipment>(environment.apiHost + 'tourist/equipment/' + id);
-  }
-
- 
 
   setDeadlineForProblem(problemId: number, newDeadline: Date): Observable<any> {
     const url = `${environment.apiHost}administration/problems/set-deadline/${problemId}`;

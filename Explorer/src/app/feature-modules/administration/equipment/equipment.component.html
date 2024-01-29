@@ -6,16 +6,21 @@
         <table>
             <thead>
                 <tr>
-                    <th>Naziv</th>
-                    <th>Opis</th>
-                    <th></th>
-                    <th></th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Company</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let eq of equipment">
                     <td>{{eq.name}}</td>
                     <td>{{eq.description}}</td>
+                    <td>{{eq.type}}</td>
+                    <td>{{eq.price}}</td>
+                    <td>{{eq.companyId}}</td>
+                    <!-- 
                     <td>
                         <button color="accent" (click)="deleteEquipment(eq.id || 0)" mat-icon-button>
                             <mat-icon>delete</mat-icon>
@@ -23,17 +28,19 @@
                         <button color="primary" (click)="onEditClicked(eq)" mat-icon-button>
                             <mat-icon>edit</mat-icon>
                         </button>
-                    </td>
+                    </td> -->
                 </tr>
+                <!-- 
                 <tr><button color="primary" (click)="onAddClicked()" mat-icon-button>
                     <mat-icon>add</mat-icon>
-                </button></tr>
+                </button></tr> -->
             </tbody>
         </table>
     </div>
+    <!-- 
     <div>
         <xp-equipment-form *ngIf="shouldRenderEquipmentForm" [shouldEdit]="shouldEdit" [equipment]="selectedEquipment" (equimpentUpdated)="getEquipment()"></xp-equipment-form>
-    </div>
+    </div>-->
     </div>
 </div>
 

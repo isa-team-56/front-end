@@ -6,7 +6,6 @@ import { MaterialModule } from 'src/app/infrastructure/material/material.module'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { ProfileFormComponent } from './profile-form/profile-form.component';
-import { EquipmentRecordComponent } from './equipment-record/equipment-record.component';
 import { FindPeopleComponent } from './find-people/find-people.component';
 import { FullCalendarModule } from '@fullcalendar/angular'
 import { DatePipe } from '@angular/common'; 
@@ -18,7 +17,6 @@ import { DatePipe } from '@angular/common';
     EquipmentComponent,
     ProfileComponent,
     ProfileFormComponent,
-    EquipmentRecordComponent,
     FindPeopleComponent,
   ],
   imports: [
@@ -34,7 +32,6 @@ import { DatePipe } from '@angular/common';
     ProfileFormComponent,
     ProfileComponent,
     FindPeopleComponent,
-    EquipmentRecordComponent,
   ],
   providers:
   [
