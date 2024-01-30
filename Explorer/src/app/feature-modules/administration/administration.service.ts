@@ -116,6 +116,9 @@ export class AdministrationService {
     return this.http.put<Appointment>(environment.apiHost + 'appointment/getAppointmentsByCompany', company);
   }
  
-
+  changeReservedStatus(id: number): Observable<Appointment> {
+    const url = `${environment.apiHost}appointment/reserveAppointment/${id}`;
+    return this.http.get<Appointment>(url);
+  }
 
 }

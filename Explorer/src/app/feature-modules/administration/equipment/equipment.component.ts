@@ -22,6 +22,7 @@ export class EquipmentComponent implements OnInit {
   appointmentsForSelectedCompany: Appointment[] = [];
   selectedCompany: Company;
   viewAppoints:boolean;
+  selectedAppointment:Appointment | undefined;
   
   
  
@@ -103,9 +104,22 @@ export class EquipmentComponent implements OnInit {
         console.error('Error fetching appointments:', error);
       }
     });
-
-   
-    
   }
+
+  changeReservedStatus(appointment: Appointment): void {
+    this.selectedAppointment = appointment;
+  if(appointment.id!=undefined){
+    this.service.changeReservedStatus(appointment.id).subscribe({
+      next: (result: any) => {
+        this.viewAppoints = false; 
+        alert("Appointment successfully reserved!")
+      },
+      error: (error) => {
+        console.error('Error changing reservation status:', error);
+        
+      }
+  });}
+  }
+
  
 }

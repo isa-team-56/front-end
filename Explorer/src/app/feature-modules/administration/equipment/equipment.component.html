@@ -65,6 +65,9 @@
                                     <td class="column-header">{{ appointment.start }}</td>
                                     <td class="column-header">{{ appointment.adminName }}</td>
                                     <td class="column-header">{{ appointment.adminSurname }}</td>
+                                    <td>
+                                        <button class="res-appointments-btn" (click)="changeReservedStatus(appointment)">Reserve</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
