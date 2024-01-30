@@ -1,0 +1,71 @@
+<div class="container my-4">
+
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center h1">Overview</h1>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-6">
+            <div class="row">
+                <h1 class="text-center">Companies</h1>
+            </div>
+            <div class="row px-4">
+
+                <div class="col-12 scroll-section" style="height: 20rem; overflow-y: scroll;">
+                    <div class="card my-2 rounded-card" *ngFor="let com of companies">
+                        <div class="card-body d-flex align-items-center justify-content-between">
+                            <div>
+                                <h2 class="card-title">{{com.name}}</h2>
+                                <p class="card-text"> Adrress: {{com.address}}</p>
+                                <p class="card-text">{{com.description}}</p>
+                                <p class="card-text">Rating: {{com.averageGrade}}</p>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="row">
+                <h1 class="text-center">Equipment</h1>
+            </div>
+            <div class="row px-4">
+
+                <div class="col-12 scroll-section" style="height: 20rem; overflow-y: scroll;">
+
+                    <div class="card my-2 rounded-card" *ngFor="let eq of equipments">
+                        <div class="card-body d-flex align-items-center justify-content-between">
+                            <div>
+                                <h2 class="card-title">{{eq.name}}</h2>
+                                <p class="card-text">{{eq.description}}</p>
+                                <p class="card-text">Type: {{getTypeString(eq.type)}}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!(user && (user.role === 'staff' || user.role === 'administrator' || user.role === 'administrators'))">
+        <div class="row mt-5 justify-content-center register-section">
+            <div class="col-6">
+                <h2 class="text-center">Join us now!</h2>
+                <p class="text-center">If you want to see more options, login or register now!</p>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+    
+
+

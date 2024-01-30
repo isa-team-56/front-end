@@ -16,9 +16,37 @@
         <div>
             <ul>
                 <li *ngFor="let eq of filteredEquipment">
-                    <strong>Name:</strong> {{eq.name}} <br>
-                    <strong>Description:</strong> {{eq.description}} <br>
-                    <strong>Type:</strong> {{ getTypeString(eq.type) }} <br>
+                    <div class="equipment-info">
+                        <strong>Name:</strong> {{eq.name}} <br>
+                        <strong>Description:</strong> {{eq.description}} <br>
+                        <strong>Type:</strong> {{ getTypeString(eq.type) }} <br>
+                      </div>
+                    
+                    <div class="button-container">
+                        <button class="show-companies-btn" (click)="getCompaniesForEquipment(eq)">Show Companies</button>
+                      </div>
+                    
+                    <div *ngIf="selectedEquipment === eq">
+                        
+                        <table>
+                        <thead>
+                            <tr>
+                            <th class="column-header">Company name</th>
+                            <th class="column-header">Company address</th>
+                            <th class="column-header">Company description</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let company of companiesForSelectedEquipment">
+                            <td class="column-header">{{ company.name }}</td>
+                            <td class="column-header">{{ company.address }}</td>
+                            <td class="column-header">{{ company.description }}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+
                 </li>
             </ul>
         </div>

@@ -8,11 +8,13 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OverviewComponent } from '../administration/overview/overview.component';
+import { AdministrationModule } from '../administration/administration.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +24,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     SharedModule,
     ReactiveFormsModule,
+    AdministrationModule
   ],
   exports: [
     NavbarComponent,
-    HomeComponent,
+    HomeComponent
   ]
 })
 export class LayoutModule { }

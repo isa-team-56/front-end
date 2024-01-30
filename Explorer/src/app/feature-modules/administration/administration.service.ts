@@ -7,6 +7,7 @@ import { PagedResults } from 'src/app/shared/model/paged-results.model';
 import { Person } from './model/userprofile.model';
 import { User, UserInfo } from 'src/app/infrastructure/auth/model/user.model';
 import { UserNotification } from 'src/app/infrastructure/auth/model/user.model';
+import { Company } from './model/company.model';
 
 
 @Injectable({
@@ -15,9 +16,11 @@ import { UserNotification } from 'src/app/infrastructure/auth/model/user.model';
 export class AdministrationService {
   
   
-
   constructor(private http: HttpClient) { }
 
+  getCompanies(): Observable<PagedResults<Company>> {
+    return this.http.get<PagedResults<Company>>(environment.apiHost + 'company')
+  }
   getEquipment(): Observable<PagedResults<Equipment>> {
     return this.http.get<PagedResults<Equipment>>(environment.apiHost + 'equipment')
   }
@@ -105,7 +108,10 @@ export class AdministrationService {
     );
   }
   
-
+  getCompaniesByEquipment(equipment: Equipment): Observable<Company> {
+    return this.http.put<Company>(environment.apiHost + 'company/getCompaniesByEquipment', equipment);
+  }
+ 
 
 
 }

@@ -1,0 +1,18 @@
+
+.register-section {
+    background-color: #98ef9b;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.h1 {
+    font-size: 40px;
+}
+.scroll-section {
+    scrollbar-color: #3498db #a3efa5; 
+}
+
+.rounded-card {
+    border-radius: 25px;
+  }

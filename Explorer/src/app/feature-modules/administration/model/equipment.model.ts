@@ -4,7 +4,7 @@ export interface Equipment {
     description: string;
     type:Type;
     price:number;
-    companyId:number;
+    companyIds:number[];
 }
 
 export enum Type{

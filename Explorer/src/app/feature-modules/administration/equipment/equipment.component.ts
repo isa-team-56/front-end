@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdministrationService } from '../administration.service';
 import { Equipment, Type } from '../model/equipment.model';
 import { PagedResults } from 'src/app/shared/model/paged-results.model';
+import { Company } from '../model/company.model';
 
 @Component({
   selector: 'xp-equipment',
@@ -15,7 +16,10 @@ export class EquipmentComponent implements OnInit {
   selectedEquipment: Equipment;
   shouldRenderEquipmentForm: boolean = false;
   shouldEdit: boolean = false;
-  searchTerm: string = ''; // Add a property to store the search term
+  searchTerm: string = ''; 
+  companiesForSelectedEquipment: Company[] = []; 
+  
+ 
   
   constructor(private service: AdministrationService) { }
 
@@ -65,10 +69,20 @@ export class EquipmentComponent implements OnInit {
     );
   }
   
-  
-  
-  
   filterEquipment(): void {
     this.applySearchFilter();
   }
+
+  getCompaniesForEquipment(eq: Equipment): void {
+    this.selectedEquipment = eq;
+    this.service.getCompaniesByEquipment(eq).subscribe({
+      next: (result: any) => {
+        this.companiesForSelectedEquipment = result;
+      },
+      error: (error) => {
+        console.error('Error fetching companies:', error);
+      }
+    });
+  }
+ 
 }
