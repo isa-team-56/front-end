@@ -3,6 +3,7 @@ import { AdministrationService } from '../administration.service';
 import { Equipment, Type } from '../model/equipment.model';
 import { PagedResults } from 'src/app/shared/model/paged-results.model';
 import { Company } from '../model/company.model';
+import { Appointment } from '../model/appointment.model';
 
 @Component({
   selector: 'xp-equipment',
@@ -18,6 +19,10 @@ export class EquipmentComponent implements OnInit {
   shouldEdit: boolean = false;
   searchTerm: string = ''; 
   companiesForSelectedEquipment: Company[] = []; 
+  appointmentsForSelectedCompany: Appointment[] = [];
+  selectedCompany: Company;
+  viewAppoints:boolean;
+  
   
  
   
@@ -78,11 +83,29 @@ export class EquipmentComponent implements OnInit {
     this.service.getCompaniesByEquipment(eq).subscribe({
       next: (result: any) => {
         this.companiesForSelectedEquipment = result;
+        this.viewAppoints=false;
       },
       error: (error) => {
         console.error('Error fetching companies:', error);
       }
     });
+  }
+
+  viewAppointments(company: Company): void {
+    this.selectedCompany = company;
+    
+    this.service.getAppointmentsByCompany(company).subscribe({
+      next: (result:any) => {
+        this.appointmentsForSelectedCompany = result;
+        this.viewAppoints=true;
+      },
+      error: (error) => {
+        console.error('Error fetching appointments:', error);
+      }
+    });
+
+   
+    
   }
  
 }

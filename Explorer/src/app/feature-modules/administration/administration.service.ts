@@ -8,6 +8,7 @@ import { Person } from './model/userprofile.model';
 import { User, UserInfo } from 'src/app/infrastructure/auth/model/user.model';
 import { UserNotification } from 'src/app/infrastructure/auth/model/user.model';
 import { Company } from './model/company.model';
+import { Appointment } from './model/appointment.model';
 
 
 @Injectable({
@@ -110,6 +111,9 @@ export class AdministrationService {
   
   getCompaniesByEquipment(equipment: Equipment): Observable<Company> {
     return this.http.put<Company>(environment.apiHost + 'company/getCompaniesByEquipment', equipment);
+  }
+  getAppointmentsByCompany(company: Company): Observable<Appointment> {
+    return this.http.put<Appointment>(environment.apiHost + 'appointment/getAppointmentsByCompany', company);
   }
  
 

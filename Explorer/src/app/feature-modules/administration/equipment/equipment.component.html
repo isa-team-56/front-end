@@ -42,11 +42,39 @@
                             <td class="column-header">{{ company.name }}</td>
                             <td class="column-header">{{ company.address }}</td>
                             <td class="column-header">{{ company.description }}</td>
+                            <td>
+                                <button class="view-appointments-btn" (click)="viewAppointments(company)">View Appointments</button>
+                            </td>
                             </tr>
                         </tbody>
                         </table>
-                    </div>
-
+                     
+                        <div *ngIf="viewAppoints && appointmentsForSelectedCompany.length > 0">
+  
+                        <h2 >Appointments for {{ selectedCompany?.name }}</h2>
+                        <table >
+                            <thead>
+                                <tr>
+                                    <th class="column-header">Date and time</th>
+                                    <th class="column-header">Admin name</th>
+                                    <th class="column-header">Admin surname</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let appointment of appointmentsForSelectedCompany">
+                                    <td class="column-header">{{ appointment.start }}</td>
+                                    <td class="column-header">{{ appointment.adminName }}</td>
+                                    <td class="column-header">{{ appointment.adminSurname }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      
+                        </div>
+                        <div *ngIf="viewAppoints && appointmentsForSelectedCompany.length == 0">
+                        
+                            <h3>No available appointments</h3>
+                          </div>
+                </div>
                 </li>
             </ul>
         </div>

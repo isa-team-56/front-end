@@ -9,7 +9,7 @@ import { ProfileFormComponent } from './profile-form/profile-form.component';
 import { FindPeopleComponent } from './find-people/find-people.component';
 import { FullCalendarModule } from '@fullcalendar/angular'
 import { DatePipe } from '@angular/common';
-import { OverviewComponent } from './overview/overview.component'; 
+import { OverviewComponent } from './overview/overview.component';
 
 
 
@@ -21,6 +21,7 @@ import { OverviewComponent } from './overview/overview.component';
     ProfileFormComponent,
     FindPeopleComponent,
     OverviewComponent,
+    
   ],
   imports: [
     CommonModule,
