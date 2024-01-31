@@ -1,39 +1,66 @@
 <div id="equipment">
-    <p>My reservations</p>
-    
+    <p>My upcoming reservations</p>
+  
     <div id="equipment-details">
-        <div>
-            <ul>
-                <li *ngFor="let r of reservationData">
+      <div>
+        <ul>
+          <li *ngFor="let r of reservationData">
+            <div>
+                <h2>Appointment details</h2>
+              <table>
+                
+                <thead>
+                  <tr>
+                    <th class="column-header">Start</th>
+                    <th class="column-header">Duration</th>
+                    <th class="column-header">Admin name</th>
+                    <th class="column-header">Admin surname</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="column-header">{{ getAppointmentDetails(r.reservedAppointment)?.start }}</td>
+                    <td class="column-header">{{ getAppointmentDetails(r.reservedAppointment)?.duration }} minutes</td>
+                    <td class="column-header">{{ getAppointmentDetails(r.reservedAppointment)?.adminName }}</td>
+                    <td class="column-header">{{ getAppointmentDetails(r.reservedAppointment)?.adminSurname }}</td>
                     
-                    <div >
-                        
-                        <table>
-                        <thead>
-                            <tr>
-                            <th class="column-header">Appointment</th>
-                            <th class="column-header">User Id</th>
-                            <th class="column-header">State</th>
-                            
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td class="column-header">{{ r.reservedAppointment }}</td>
-                            <td class="column-header">{{ r.userId }}</td>
-                            <td class="column-header">{{ r.state }}</td>
-                            <td>
-                                <button class="view-appointments-btn" >Cancel appointment</button>
-                            </td>
-                            </tr>
-                        </tbody>
-                        </table>
-                     
-                        
-                       
-                    </div>
-                </li>
-            </ul>
-        </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div>
+                <h2>Equipment details</h2>
+              <table>
+                
+                <thead>
+                  <tr>
+                    <th class="column-header">Name</th>
+                    <th class="column-header">Description</th>
+                    <th class="column-header">Type</th>
+                    
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="column-header">{{ getEquipmentDetails(r.equipmentId)?.name }}</td>
+                    <td class="column-header">{{ getEquipmentDetails(r.equipmentId)?.description }} </td>
+                    <td class="column-header">{{ getEquipmentDetails(r.equipmentId)?.type }}</td>
+                    
+                </tr>
+                <tr>
+                    <button class="view-appointments-btn" (click)="cancelReservation(r)">Cancel appointment</button>
+                 </tr>
+                
+                 
+                  
+                  
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
+  </div>
+  

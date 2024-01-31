@@ -130,6 +130,13 @@ export class AdministrationService {
   getReservations(): Observable<PagedResults<Reservation>> {
     return this.http.get<PagedResults<Reservation>>(environment.apiHost + 'reservation')
   }
- 
 
+  getAppointments(): Observable<PagedResults<Appointment>> {
+    return this.http.get<PagedResults<Appointment>>(environment.apiHost + 'appointment')
+  }
+ 
+  cancelReservation(id: number): Observable<any> {
+    const url = `${environment.apiHost}reservation/cancelReservation/${id}`;
+    return this.http.get<any>(url);
+  }
 }
