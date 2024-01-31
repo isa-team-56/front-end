@@ -10,6 +10,7 @@ import { FindPeopleComponent } from './find-people/find-people.component';
 import { FullCalendarModule } from '@fullcalendar/angular'
 import { DatePipe } from '@angular/common';
 import { OverviewComponent } from './overview/overview.component';
+import { ReservationsViewComponent } from './reservations-view/reservations-view.component';
 
 
 
@@ -21,6 +22,7 @@ import { OverviewComponent } from './overview/overview.component';
     ProfileFormComponent,
     FindPeopleComponent,
     OverviewComponent,
+    ReservationsViewComponent,
     
   ],
   imports: [
@@ -37,7 +39,8 @@ import { OverviewComponent } from './overview/overview.component';
     ProfileFormComponent,
     ProfileComponent,
     FindPeopleComponent,
-    OverviewComponent
+    OverviewComponent,
+    ReservationsViewComponent
   ],
   providers:
   [

@@ -1,0 +1,39 @@
+<div id="equipment">
+    <p>My reservations</p>
+    
+    <div id="equipment-details">
+        <div>
+            <ul>
+                <li *ngFor="let r of reservationData">
+                    
+                    <div >
+                        
+                        <table>
+                        <thead>
+                            <tr>
+                            <th class="column-header">Appointment</th>
+                            <th class="column-header">User Id</th>
+                            <th class="column-header">State</th>
+                            
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td class="column-header">{{ r.reservedAppointment }}</td>
+                            <td class="column-header">{{ r.userId }}</td>
+                            <td class="column-header">{{ r.state }}</td>
+                            <td>
+                                <button class="view-appointments-btn" >Cancel appointment</button>
+                            </td>
+                            </tr>
+                        </tbody>
+                        </table>
+                     
+                        
+                       
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { FindPeopleComponent } from 'src/app/feature-modules/administration/find
 import { ActivateAccountComponent } from '../auth/activate-account/activate-account.component';
 import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from '../auth/change-password/change-password.component';
+import { ReservationsViewComponent } from 'src/app/feature-modules/administration/reservations-view/reservations-view.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'activate', component: ActivateAccountComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'change-password', component: ChangePasswordComponent},
+  {path: 'reservations-view', component: ReservationsViewComponent}
   
 ];
 

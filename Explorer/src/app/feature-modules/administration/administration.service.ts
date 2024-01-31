@@ -125,6 +125,11 @@ export class AdministrationService {
 
   createReservation(reservation: Reservation): Observable<Reservation> {
     return this.http.post<Reservation>(environment.apiHost + 'reservation', reservation);
+
   }
+  getReservations(): Observable<PagedResults<Reservation>> {
+    return this.http.get<PagedResults<Reservation>>(environment.apiHost + 'reservation')
+  }
+ 
 
 }
