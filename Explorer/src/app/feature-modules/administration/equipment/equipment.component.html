@@ -65,7 +65,7 @@
                                     <td class="column-header">{{ appointment.start }}</td>
                                     <td class="column-header">{{ appointment.adminName }}</td>
                                     <td class="column-header">{{ appointment.adminSurname }}</td>
-                                    <td>
+                                    <td  *ngIf="user && user.role === 'staff' ">
                                         <button class="res-appointments-btn" (click)="changeReservedStatus(appointment)">Reserve</button>
                                     </td>
                                 </tr>

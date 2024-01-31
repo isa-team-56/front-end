@@ -59,7 +59,7 @@
 
                         <li *ngIf="user && user.role === 'administratorc'">
                             <a class="dropdown-item" [routerLink]="['calendar']">Calendar</a>
-
+                            <a class="dropdown-item" [routerLink]="['equipment']">Equipment</a>
                         </li>
 
                         <li *ngIf="user && user.role === 'staff'">
