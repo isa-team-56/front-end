@@ -38,6 +38,7 @@ export class ProfileFormComponent implements OnChanges {
       bio: this.profileForm.value.bio || "",
       quote: this.profileForm.value.quote || "",
       xp: this.profile.xp,
+      penaltyPoints:this.profile.penaltyPoints,
       level: this.profile.level,
       city:this.profile.city,
       country:this.profile.country,

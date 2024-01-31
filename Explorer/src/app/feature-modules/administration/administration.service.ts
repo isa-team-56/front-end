@@ -9,6 +9,7 @@ import { User, UserInfo } from 'src/app/infrastructure/auth/model/user.model';
 import { UserNotification } from 'src/app/infrastructure/auth/model/user.model';
 import { Company } from './model/company.model';
 import { Appointment } from './model/appointment.model';
+import { Reservation } from './model/reservation.model';
 
 
 @Injectable({
@@ -116,9 +117,14 @@ export class AdministrationService {
     return this.http.put<Appointment>(environment.apiHost + 'appointment/getAppointmentsByCompany', company);
   }
  
+  
   changeReservedStatus(id: number): Observable<Appointment> {
     const url = `${environment.apiHost}appointment/reserveAppointment/${id}`;
     return this.http.get<Appointment>(url);
+  }
+
+  createReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http.post<Reservation>(environment.apiHost + 'reservation', reservation);
   }
 
 }

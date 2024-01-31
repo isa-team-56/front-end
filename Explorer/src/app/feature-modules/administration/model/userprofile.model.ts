@@ -7,6 +7,7 @@ export interface Person {
     bio: string;
     quote: string;
     xp: number;
+    penaltyPoints:number;
     level: number;
     city: string;
     country:string;

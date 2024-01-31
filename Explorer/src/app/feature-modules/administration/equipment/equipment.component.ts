@@ -4,6 +4,9 @@ import { Equipment, Type } from '../model/equipment.model';
 import { PagedResults } from 'src/app/shared/model/paged-results.model';
 import { Company } from '../model/company.model';
 import { Appointment } from '../model/appointment.model';
+import { User } from 'src/app/infrastructure/auth/model/user.model';
+import { AuthService } from 'src/app/infrastructure/auth/auth.service';
+import { Reservation } from '../model/reservation.model';
 
 @Component({
   selector: 'xp-equipment',
@@ -14,7 +17,7 @@ export class EquipmentComponent implements OnInit {
 
   equipment: Equipment[] = [];
   filteredEquipment: Equipment[] = [];
-  selectedEquipment: Equipment;
+  selectedEquipment: Equipment ;
   shouldRenderEquipmentForm: boolean = false;
   shouldEdit: boolean = false;
   searchTerm: string = ''; 
@@ -23,14 +26,19 @@ export class EquipmentComponent implements OnInit {
   selectedCompany: Company;
   viewAppoints:boolean;
   selectedAppointment:Appointment | undefined;
-  
+  user: User;
+  reservation: Reservation;
   
  
   
-  constructor(private service: AdministrationService) { }
+  constructor(private authService: AuthService,private service: AdministrationService) { }
+
 
   selectedType: Type | '' = '';
   ngOnInit(): void {
+    this.authService.user$.subscribe(user => {
+      this.user = user;
+    });
     this.getEquipment();
   }
 
@@ -106,14 +114,32 @@ export class EquipmentComponent implements OnInit {
     });
   }
 
+  addReservation(appId: number): void{
+    console.log('appId before HTTP request:', appId);
+    const reservation: Reservation = {
+      
+      reservedAppointment: appId|| -1,
+      userId: this.user.id || -1,
+      state: "in progress",
+      equipmentId:this.selectedEquipment.id||-1
+      
+    };
+  
+    this.service.createReservation(reservation).subscribe({
+      next: () => { }
+    });
+  }
+
   changeReservedStatus(appointment: Appointment): void {
     this.selectedAppointment = appointment;
   if(appointment.id!=undefined){
     this.service.changeReservedStatus(appointment.id).subscribe({
       next: (result: any) => {
         this.viewAppoints = false; 
+        if(appointment.id!=undefined){
+        this.addReservation(appointment.id)
         alert("Appointment successfully reserved!")
-      },
+      }},
       error: (error) => {
         console.error('Error changing reservation status:', error);
         
