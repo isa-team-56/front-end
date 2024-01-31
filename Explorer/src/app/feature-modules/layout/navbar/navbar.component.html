@@ -13,19 +13,9 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <!-- Explore Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Explore
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Top destinations</a></li>
-                        <li><a class="dropdown-item" href="#">Popular restaurants</a></li>
-                    </ul>
-                </li>
+                
 
-                <!-- Trips Menu -->
+                <!-- Menu 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,9 +27,9 @@
                         <li *ngIf="user && user.role === 'author'">
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
-                <!-- Community Menu -->
+                <!-- Community Menu 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +39,7 @@
                         <li *ngIf="user && user.username !== ''"><a class="dropdown-item"
                                 [routerLink]="['find-people']">Find people</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <!-- User Section -->
                 <li class="nav-item dropdown dropdown-center" *ngIf="user && user.username !== ''">
@@ -93,7 +83,7 @@
                     </li>
                     </div>
                 </div>
-
+<!--
                 <div class="container">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" color="btn-primary" type="button" id="messageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -103,7 +93,7 @@
                             <button type="button" class="plain-button" data-bs-toggle="modal" data-bs-target="#sendMessageModal">Send message to followers</button>
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
                 <!--Notifications dropdown menu-->
                 <div class="container">

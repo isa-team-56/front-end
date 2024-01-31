@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Equipment } from './model/equipment.model';
 import { environment } from 'src/env/environment';
@@ -140,4 +140,10 @@ export class AdministrationService {
     return this.http.get<any>(url);
   }
  
+
+  sendReservationConfirmationEmail(email: string): Observable<boolean> {
+    const url = `${environment.apiHost}reservation/reservationConfirmation?email=` + email;
+    return this.http.post<boolean>(url, {});
+  }
+  
 }

@@ -7,6 +7,7 @@ import { Appointment } from '../model/appointment.model';
 import { User } from 'src/app/infrastructure/auth/model/user.model';
 import { AuthService } from 'src/app/infrastructure/auth/auth.service';
 import { Reservation } from '../model/reservation.model';
+import * as QRCode from 'qrcode';
 
 @Component({
   selector: 'xp-equipment',
@@ -114,7 +115,7 @@ export class EquipmentComponent implements OnInit {
     });
   }
 
-  addReservation(appId: number): void{
+  addReservation(appId: number,cId:number): void{
     console.log('appId before HTTP request:', appId);
     const reservation: Reservation = {
       
@@ -122,15 +123,30 @@ export class EquipmentComponent implements OnInit {
       userId: this.user.id || -1,
       state: "in progress",
       equipmentId:this.selectedEquipment.id||-1,
-      companyId:this.selectedCompany.id||-1
+      companyId:cId||-1
       
     };
   
     this.service.createReservation(reservation).subscribe({
-      next: () => { }
+      next: () => { 
+        this.sendReservationConfirmationEmail("kataleja22@gmail.com");
+       
+      }
     });
   }
 
+  sendReservationConfirmationEmail(email: string): void {
+   
+    this.service.sendReservationConfirmationEmail(email).subscribe({
+        next: () => {
+            console.log("Reservation confirmation email sent successfully!");
+        },
+        error: (error) => {
+            console.error('Error sending reservation confirmation email:', error);
+        }
+    });
+}
+  
   changeReservedStatus(appointment: Appointment): void {
     this.selectedAppointment = appointment;
   if(appointment.id!=undefined){
@@ -138,7 +154,7 @@ export class EquipmentComponent implements OnInit {
       next: (result: any) => {
         this.viewAppoints = false; 
         if(appointment.id!=undefined){
-        this.addReservation(appointment.id)
+        this.addReservation(appointment.id,appointment.companyId)
         alert("Appointment successfully reserved!")
       }},
       error: (error) => {

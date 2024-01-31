@@ -56,6 +56,7 @@ export class ReservationsViewComponent implements OnInit{
     });
   }
 
+  
   getCompanies(): void {
     this.service.getCompanies().subscribe({
       next: (result: PagedResults<Company>) => {

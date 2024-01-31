@@ -61,8 +61,8 @@ export class CalendarComponent implements OnInit {
         const appointments = response?.results || [];
   
        
-        //const filteredAppointments = appointments.filter(appointment => appointment.adminId === this.user.id);
-        const filteredAppointments = appointments;
+        const filteredAppointments = appointments.filter(appointment => appointment.adminId === this.user.id);
+        //const filteredAppointments = appointments;
   
         console.log('Filtered appointments:', filteredAppointments);
   
