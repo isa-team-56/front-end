@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AdministrationService } from '../administration.service';
 import { Equipment, Type } from '../model/equipment.model';
 import { PagedResults } from 'src/app/shared/model/paged-results.model';
@@ -22,7 +22,7 @@ export class ReservationsViewComponent implements OnInit{
   appointmentsData: Appointment[] = [];
   equipmentData: Equipment[] = [];
   companyData: Company[] = [];
-  constructor(private authService: AuthService,private service: AdministrationService) { }
+  constructor(private authService: AuthService,private service: AdministrationService,private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.authService.user$.subscribe(user => {
@@ -91,18 +91,23 @@ export class ReservationsViewComponent implements OnInit{
     });
   }
 
-  cancelReservation(r: Reservation):void{
-    this.selectedReservation=r;
-    if(this.selectedReservation.id!=undefined){
-    this.service.cancelReservation(this.selectedReservation.id).subscribe({
-      next: (result:any) => {
-        alert("Appointment successfully canceled!");
-        
-      },
-      error: () => {
-      }
-    })};
+  cancelReservation(r: Reservation): void {
+    this.selectedReservation = r;
+    if (this.selectedReservation.id != undefined) {
+      this.service.cancelReservation(this.selectedReservation.id).subscribe({
+        next: (result: any) => {
+          alert("Appointment successfully canceled!");
+          // Reload reservations after successful cancellation
+          this.getReservations();
+          // Manually trigger change detection to update the view
+          this.cdr.detectChanges();
+        },
+        error: () => {
+          // Handle error if needed
+        }
+      });
+    }
   }
-
+  
 
 }
