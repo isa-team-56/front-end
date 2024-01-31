@@ -48,16 +48,40 @@
                     <td class="column-header">{{ getEquipmentDetails(r.equipmentId)?.type }}</td>
                     
                 </tr>
-                <tr>
-                    <button class="view-appointments-btn" (click)="cancelReservation(r)">Cancel appointment</button>
-                 </tr>
-                
-                 
-                  
-                  
+               
                 </tbody>
               </table>
             </div>
+
+            <div>
+              <h2>Company details</h2>
+            <table>
+              
+              <thead>
+                <tr>
+                  <th class="column-header">Name</th>
+                  <th class="column-header">Addres</th>
+                  <th class="column-header">Rating</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="column-header">{{ getCompanyDetails(r.companyId)?.name }}</td>
+                  <td class="column-header">{{ getCompanyDetails(r.companyId)?.address }} </td>
+                  <td class="column-header">{{ getCompanyDetails(r.companyId)?.averageGrade }}</td>
+                  
+              </tr>
+              <tr>
+                  <button class="view-appointments-btn" (click)="cancelReservation(r)">Cancel appointment</button>
+               </tr>
+              
+               
+                
+                
+              </tbody>
+            </table>
+          </div>
           </li>
         </ul>
       </div>

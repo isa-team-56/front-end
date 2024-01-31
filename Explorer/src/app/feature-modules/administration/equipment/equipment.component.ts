@@ -121,7 +121,8 @@ export class EquipmentComponent implements OnInit {
       reservedAppointment: appId|| -1,
       userId: this.user.id || -1,
       state: "in progress",
-      equipmentId:this.selectedEquipment.id||-1
+      equipmentId:this.selectedEquipment.id||-1,
+      companyId:this.selectedCompany.id||-1
       
     };
   

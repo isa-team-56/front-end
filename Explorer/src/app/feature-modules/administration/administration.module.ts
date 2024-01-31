@@ -11,6 +11,7 @@ import { FullCalendarModule } from '@fullcalendar/angular'
 import { DatePipe } from '@angular/common';
 import { OverviewComponent } from './overview/overview.component';
 import { ReservationsViewComponent } from './reservations-view/reservations-view.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -23,6 +24,7 @@ import { ReservationsViewComponent } from './reservations-view/reservations-view
     FindPeopleComponent,
     OverviewComponent,
     ReservationsViewComponent,
+    CalendarComponent,
     
   ],
   imports: [

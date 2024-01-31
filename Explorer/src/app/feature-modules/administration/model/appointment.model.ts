@@ -6,5 +6,6 @@ export interface Appointment {
     adminName:string;
     adminSurname:string;
     isReserved:boolean;
+    adminId:number;
     
 }

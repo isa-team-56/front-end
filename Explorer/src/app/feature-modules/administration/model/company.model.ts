@@ -5,4 +5,5 @@ export interface Company {
     description:string;
     averageGrade:number;
     companyAdministrators:number[];
+    
 }

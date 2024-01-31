@@ -21,6 +21,7 @@ export class ReservationsViewComponent implements OnInit{
   selectedReservation:Reservation | undefined;
   appointmentsData: Appointment[] = [];
   equipmentData: Equipment[] = [];
+  companyData: Company[] = [];
   constructor(private authService: AuthService,private service: AdministrationService) { }
 
   ngOnInit(): void {
@@ -29,6 +30,7 @@ export class ReservationsViewComponent implements OnInit{
     });
     this.getAppointments();
     this.getEquipment();
+    this.getCompanies();
     this.getReservations();
   }
 
@@ -54,6 +56,20 @@ export class ReservationsViewComponent implements OnInit{
     });
   }
 
+  getCompanies(): void {
+    this.service.getCompanies().subscribe({
+      next: (result: PagedResults<Company>) => {
+        this.companyData = result.results;
+      },
+      error: () => {
+        
+      }
+    });
+  }
+
+  getCompanyDetails(companyId: number): Company | undefined {
+    return this.companyData.find(company => company.id === companyId);
+  }
 
   getAppointmentDetails(appointmentId: number): Appointment | undefined {
     return this.appointmentsData.find(appointment => appointment.id === appointmentId);

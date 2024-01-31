@@ -4,4 +4,5 @@ export interface Reservation {
     userId: number;
     state:string;
     equipmentId: number;
+    companyId:number;
 }

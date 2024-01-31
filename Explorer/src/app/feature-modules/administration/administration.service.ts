@@ -139,4 +139,5 @@ export class AdministrationService {
     const url = `${environment.apiHost}reservation/cancelReservation/${id}`;
     return this.http.get<any>(url);
   }
+ 
 }
